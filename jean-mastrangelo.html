@@ -1,0 +1,738 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Jean Mastrangelo, MSHS | Sr. Director, Clinical Operations | Wister Group LLC</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy: #0d1f35;
+    --deep: #071525;
+    --gold: #b89c5d;
+    --gold-light: #d4b97a;
+    --gold-pale: rgba(184,156,93,0.08);
+    --ivory: #f7f4ef;
+    --ivory-mid: #ede8df;
+    --slate: #8a9ab0;
+    --text: #1c2b3a;
+    --white: #ffffff;
+    --muted: #4a5a6c;
+  }
+
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--ivory);
+    color: var(--text);
+    overflow-x: hidden;
+  }
+
+  /* ─── NAV ─────────────────────────────────── */
+  nav {
+    position: fixed; top: 0; width: 100%; z-index: 100;
+    background: rgba(7,21,37,0.97); backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(184,156,93,0.2);
+    padding: 0 5%; height: 68px;
+    display: flex; align-items: center; justify-content: space-between;
+  }
+  .nav-back {
+    display: flex; align-items: center; gap: 0.7rem;
+    font-size: 0.72rem; letter-spacing: 0.12em; text-transform: uppercase;
+    color: var(--slate); text-decoration: none; transition: color 0.2s;
+  }
+  .nav-back:hover { color: var(--gold); }
+  .nav-back-arrow { font-size: 1rem; }
+  .nav-logo {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.2rem; font-weight: 500; color: var(--white);
+    letter-spacing: 0.04em; text-decoration: none;
+  }
+  .nav-logo span { color: var(--gold); }
+  .nav-cta {
+    background: transparent; border: 1px solid var(--gold);
+    color: var(--gold); padding: 0.45rem 1.2rem;
+    font-size: 0.7rem; letter-spacing: 0.1em; text-transform: uppercase;
+    font-family: 'DM Sans', sans-serif; transition: all 0.25s;
+    text-decoration: none; display: inline-block;
+  }
+  .nav-cta:hover { background: var(--gold); color: var(--deep); }
+
+  /* ─── HERO ───────────────────────────────── */
+  .hero {
+    min-height: 100vh; background: var(--deep);
+    position: relative; display: flex; align-items: flex-end;
+    padding: 0 8% 8%; overflow: hidden;
+  }
+  .hero-bg {
+    position: absolute; inset: 0;
+    background:
+      radial-gradient(ellipse 60% 70% at 80% 30%, rgba(184,156,93,0.07) 0%, transparent 60%),
+      radial-gradient(ellipse 40% 60% at 0% 100%, rgba(13,31,53,0.9) 0%, transparent 60%),
+      linear-gradient(160deg, #071525 0%, #0d1f35 50%, #071525 100%);
+  }
+  .hero-grid {
+    position: absolute; inset: 0; overflow: hidden; opacity: 0.04;
+    background-image:
+      linear-gradient(rgba(184,156,93,0.5) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(184,156,93,0.5) 1px, transparent 1px);
+    background-size: 60px 60px;
+  }
+  .hero-line {
+    position: absolute; width: 1px; height: 100%;
+    background: linear-gradient(to bottom, transparent 0%, var(--gold) 40%, transparent 100%);
+    opacity: 0.1;
+  }
+  .hero-line:nth-child(1) { left: 25%; animation: pulse 8s ease-in-out infinite; }
+  .hero-line:nth-child(2) { left: 75%; animation: pulse 8s ease-in-out infinite 3s; }
+  @keyframes pulse { 0%,100%{opacity:0.05} 50%{opacity:0.15} }
+
+  .hero-content { position: relative; z-index: 2; max-width: 800px; animation: fadeUp 0.9s ease both; }
+  @keyframes fadeUp { from{opacity:0;transform:translateY(25px)} to{opacity:1;transform:translateY(0)} }
+
+  .hero-eyebrow {
+    display: flex; align-items: center; gap: 1rem;
+    font-size: 0.68rem; letter-spacing: 0.22em; text-transform: uppercase;
+    color: var(--gold); margin-bottom: 2rem;
+  }
+  .hero-eyebrow::before { content:''; width:36px; height:1px; background:var(--gold); }
+
+  .hero-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(3.2rem, 7vw, 6rem);
+    font-weight: 300; color: var(--white); line-height: 1.0;
+    margin-bottom: 0.3rem;
+  }
+  .hero-name em { font-style: italic; color: var(--gold-light); }
+
+  .hero-credentials {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.2rem; color: var(--slate); letter-spacing: 0.06em;
+    margin-bottom: 2.5rem; font-weight: 300;
+  }
+
+  .hero-summary {
+    font-size: 1rem; line-height: 1.85; color: rgba(255,255,255,0.58);
+    max-width: 640px; font-weight: 300; margin-bottom: 3rem;
+  }
+
+  .hero-pills { display: flex; flex-wrap: wrap; gap: 0.6rem; margin-bottom: 3rem; }
+  .hero-pill {
+    border: 1px solid rgba(184,156,93,0.3); padding: 0.35rem 1rem;
+    font-size: 0.7rem; letter-spacing: 0.1em; text-transform: uppercase;
+    color: rgba(255,255,255,0.55);
+  }
+
+  .hero-stats {
+    display: flex; gap: 3rem; border-top: 1px solid rgba(255,255,255,0.08);
+    padding-top: 2rem;
+  }
+  .hero-stat-num {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2.5rem; color: var(--white); font-weight: 300; line-height: 1;
+  }
+  .hero-stat-num span { color: var(--gold); }
+  .hero-stat-label {
+    font-size: 0.65rem; letter-spacing: 0.14em; text-transform: uppercase;
+    color: var(--slate); margin-top: 0.25rem;
+  }
+
+  /* ─── SHARED ─────────────────────────────── */
+  .section-label {
+    font-size: 0.65rem; letter-spacing: 0.22em; text-transform: uppercase;
+    color: var(--gold); margin-bottom: 0.8rem;
+    display: flex; align-items: center; gap: 0.7rem;
+  }
+  .section-label::before { content:''; width:24px; height:1px; background:var(--gold); }
+  .section-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(2rem, 3.5vw, 3rem);
+    font-weight: 300; line-height: 1.1; color: var(--navy); margin-bottom: 1.2rem;
+  }
+  .section-title em { font-style: italic; color: var(--gold); }
+  .gold-rule { height: 1px; background: linear-gradient(to right, transparent, var(--gold), transparent); opacity: 0.25; }
+
+  /* ─── EXPERTISE STRIP ─────────────────────── */
+  .expertise { background: var(--white); padding: 90px 8%; }
+  .expertise-grid {
+    display: grid; grid-template-columns: repeat(3,1fr); gap: 1.5px;
+    background: var(--ivory-mid); margin-top: 3rem;
+  }
+  .expertise-card {
+    background: var(--white); padding: 2.2rem 2rem;
+    position: relative; overflow: hidden; transition: background 0.3s;
+  }
+  .expertise-card::after {
+    content:''; position:absolute; bottom:0; left:0;
+    width:0; height:2px; background:var(--gold); transition:width 0.35s;
+  }
+  .expertise-card:hover::after { width:100%; }
+  .expertise-card:hover { background: var(--navy); }
+  .expertise-card:hover .exp-title { color: var(--gold-light); }
+  .expertise-card:hover .exp-desc { color: rgba(255,255,255,0.5); }
+  .exp-num {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.6rem; color: var(--ivory-mid); font-weight: 300; margin-bottom: 1rem;
+    transition: color 0.3s;
+  }
+  .exp-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.2rem; color: var(--navy); font-weight: 500;
+    margin-bottom: 0.6rem; transition: color 0.3s;
+  }
+  .exp-desc { font-size: 0.85rem; line-height: 1.7; color: var(--muted); transition: color 0.3s; }
+
+  /* ─── THERAPEUTIC AREAS ───────────────────── */
+  .therapeutic { background: var(--navy); padding: 90px 8%; }
+  .therapeutic .section-title { color: var(--white); }
+  .therapeutic-layout { display: grid; grid-template-columns: 1fr 1.5fr; gap: 6%; margin-top: 2.5rem; align-items: start; }
+  .therapeutic-text p { font-size: 0.92rem; line-height: 1.8; color: rgba(255,255,255,0.5); font-weight: 300; margin-bottom: 1rem; }
+  .ta-grid { display: flex; flex-wrap: wrap; gap: 0.6rem; }
+  .ta-tag {
+    border: 1px solid rgba(184,156,93,0.3); padding: 0.5rem 1.1rem;
+    font-size: 0.75rem; letter-spacing: 0.07em; text-transform: uppercase;
+    color: rgba(255,255,255,0.6); transition: all 0.25s;
+  }
+  .ta-tag:hover { border-color: var(--gold); color: var(--gold); background: rgba(184,156,93,0.07); }
+  .phase-list { margin-top: 0; }
+  .phase-item {
+    display: grid; grid-template-columns: auto 1fr; gap: 1.2rem;
+    padding: 1.2rem 0; border-bottom: 1px solid rgba(255,255,255,0.06);
+    align-items: start;
+  }
+  .phase-badge {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.6rem; color: var(--gold); font-weight: 300; line-height: 1; min-width: 60px;
+  }
+  .phase-text strong { display:block; color: var(--white); font-size: 0.88rem; font-weight: 500; margin-bottom: 0.25rem; }
+  .phase-text span { color: rgba(255,255,255,0.42); font-size: 0.8rem; line-height: 1.6; }
+
+  /* ─── EXPERIENCE TIMELINE ─────────────────── */
+  .experience { background: var(--ivory); padding: 90px 8%; }
+  .exp-layout { display: grid; grid-template-columns: 280px 1fr; gap: 6%; margin-top: 3rem; }
+  .exp-sidebar { position: sticky; top: 100px; height: fit-content; }
+  .exp-sidebar-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.6rem; color: var(--navy); font-weight: 300; margin-bottom: 1.5rem; line-height: 1.2;
+  }
+  .exp-sidebar p { font-size: 0.85rem; line-height: 1.75; color: var(--muted); margin-bottom: 1.2rem; }
+  .exp-sidebar-stat { margin-top: 2rem; }
+  .exp-sidebar-stat-num {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 3rem; color: var(--navy); font-weight: 300; line-height: 1;
+  }
+  .exp-sidebar-stat-num span { color: var(--gold); }
+  .exp-sidebar-stat-label { font-size: 0.7rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--slate); margin-top: 0.2rem; }
+
+  .timeline { position: relative; padding-left: 2rem; }
+  .timeline::before { content:''; position:absolute; left:0; top:0; bottom:0; width:1px; background:linear-gradient(to bottom, var(--gold), rgba(184,156,93,0.1)); }
+
+  .timeline-entry { position: relative; margin-bottom: 3.5rem; }
+  .timeline-entry::before {
+    content:''; position:absolute; left:-2rem; top:0.5rem;
+    width:8px; height:8px; border-radius:50%; background:var(--gold);
+    box-shadow: 0 0 0 4px rgba(184,156,93,0.15);
+  }
+  .timeline-entry.current::before { background: var(--gold); box-shadow: 0 0 0 4px rgba(184,156,93,0.2), 0 0 12px rgba(184,156,93,0.3); }
+
+  .timeline-meta { display: flex; align-items: center; gap: 1rem; margin-bottom: 0.4rem; flex-wrap: wrap; }
+  .timeline-period {
+    font-size: 0.65rem; letter-spacing: 0.16em; text-transform: uppercase; color: var(--gold);
+  }
+  .timeline-current-badge {
+    font-size: 0.6rem; letter-spacing: 0.12em; text-transform: uppercase;
+    background: rgba(184,156,93,0.1); color: var(--gold); padding: 0.15rem 0.6rem; border: 1px solid rgba(184,156,93,0.3);
+  }
+  .timeline-role {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.5rem; color: var(--navy); font-weight: 500; margin-bottom: 0.2rem; line-height: 1.2;
+  }
+  .timeline-company {
+    font-size: 0.82rem; color: var(--slate); margin-bottom: 1rem; font-weight: 400;
+  }
+  .timeline-clients {
+    background: var(--gold-pale); border-left: 2px solid var(--gold);
+    padding: 0.8rem 1.2rem; margin-bottom: 1rem;
+    font-size: 0.82rem; color: var(--muted); line-height: 1.7;
+  }
+  .timeline-clients strong { color: var(--navy); font-weight: 500; }
+  .timeline-bullets { list-style: none; padding: 0; }
+  .timeline-bullets li {
+    font-size: 0.88rem; line-height: 1.75; color: var(--muted);
+    padding: 0.35rem 0 0.35rem 1.2rem; position: relative;
+    border-bottom: 1px solid rgba(0,0,0,0.04);
+  }
+  .timeline-bullets li::before {
+    content:''; position:absolute; left:0; top:0.75rem;
+    width:5px; height:1px; background:var(--gold);
+  }
+
+  /* ─── EDUCATION ──────────────────────────── */
+  .education { background: var(--deep); padding: 90px 8%; }
+  .education .section-title { color: var(--white); }
+  .edu-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 1.5px; background: rgba(255,255,255,0.04); margin-top: 3rem; }
+  .edu-card { background: var(--navy); padding: 2.5rem 2rem; position: relative; overflow: hidden; }
+  .edu-card::before { content:''; position:absolute; top:0; left:0; right:0; height:2px; background: var(--gold); }
+  .edu-degree {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.25rem; color: var(--white); font-weight: 400; margin-bottom: 0.4rem; line-height: 1.3;
+  }
+  .edu-school { font-size: 0.8rem; color: var(--gold); letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 0.4rem; }
+  .edu-year { font-size: 0.75rem; color: var(--slate); }
+  .edu-honor {
+    display: inline-block; margin-top: 0.8rem;
+    font-size: 0.65rem; letter-spacing: 0.1em; text-transform: uppercase;
+    background: rgba(184,156,93,0.1); color: var(--gold); padding: 0.2rem 0.6rem; border: 1px solid rgba(184,156,93,0.25);
+  }
+
+  /* ─── TECHNOLOGY ─────────────────────────── */
+  .technology { background: var(--white); padding: 90px 8%; }
+  .tech-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 6%; margin-top: 2.5rem; align-items: start; }
+  .tech-text p { font-size: 0.92rem; line-height: 1.8; color: var(--muted); margin-bottom: 1rem; }
+  .tech-tags { display: flex; flex-wrap: wrap; gap: 0.6rem; margin-top: 1rem; }
+  .tech-tag {
+    background: var(--ivory); border: 1px solid var(--ivory-mid);
+    padding: 0.45rem 1rem; font-size: 0.75rem; color: var(--navy); letter-spacing: 0.05em;
+    transition: all 0.2s;
+  }
+  .tech-tag:hover { border-color: var(--gold); color: var(--gold); }
+  .pub-box {
+    background: var(--ivory); border-left: 3px solid var(--gold);
+    padding: 2rem 2rem; margin-top: 0;
+  }
+  .pub-label { font-size: 0.65rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--gold); margin-bottom: 0.8rem; }
+  .pub-text { font-size: 0.88rem; line-height: 1.75; color: var(--muted); font-style: italic; }
+  .pub-text strong { color: var(--navy); font-style: normal; font-weight: 500; }
+
+  /* ─── CTA ────────────────────────────────── */
+  .cta-section { background: var(--navy); padding: 90px 8%; text-align: center; }
+  .cta-section .section-title { color: var(--white); }
+  .cta-section p { font-size: 1rem; line-height: 1.8; color: rgba(255,255,255,0.5); max-width: 560px; margin: 0 auto 2.5rem; font-weight: 300; }
+  .cta-buttons { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+  .btn-gold {
+    background: var(--gold); color: var(--deep);
+    padding: 0.9rem 2.2rem; font-size: 0.78rem; letter-spacing: 0.12em; text-transform: uppercase;
+    border: none; cursor: pointer; font-family: 'DM Sans', sans-serif; font-weight: 500;
+    text-decoration: none; display: inline-block; transition: all 0.25s;
+  }
+  .btn-gold:hover { background: var(--gold-light); transform: translateY(-2px); }
+  .btn-ghost {
+    background: transparent; color: var(--white);
+    padding: 0.9rem 2.2rem; font-size: 0.78rem; letter-spacing: 0.12em; text-transform: uppercase;
+    border: 1px solid rgba(255,255,255,0.25); cursor: pointer; font-family: 'DM Sans', sans-serif;
+    text-decoration: none; display: inline-block; transition: all 0.25s;
+  }
+  .btn-ghost:hover { border-color: var(--white); background: rgba(255,255,255,0.06); }
+
+  /* ─── FOOTER ─────────────────────────────── */
+  footer {
+    background: #040f1d; padding: 2rem 8%;
+    display: flex; align-items: center; justify-content: space-between;
+    border-top: 1px solid rgba(184,156,93,0.1); flex-wrap: wrap; gap: 1rem;
+  }
+  .footer-brand { font-family: 'Cormorant Garamond', serif; font-size: 1.1rem; color: var(--white); }
+  .footer-brand span { color: var(--gold); }
+  footer p { font-size: 0.72rem; color: rgba(255,255,255,0.25); }
+  .footer-link { font-size: 0.7rem; color: rgba(255,255,255,0.3); text-decoration: none; transition: color 0.2s; }
+  .footer-link:hover { color: var(--gold); }
+
+  /* ─── RESPONSIVE ─────────────────────────── */
+  @media (max-width: 900px) {
+    .expertise-grid { grid-template-columns: 1fr 1fr; }
+    .therapeutic-layout, .exp-layout, .tech-layout { grid-template-columns: 1fr; }
+    .edu-grid { grid-template-columns: 1fr; }
+    .exp-sidebar { position: static; }
+    .hero-stats { flex-wrap: wrap; gap: 2rem; }
+    nav .nav-cta { display: none; }
+  }
+  @media (max-width: 600px) {
+    .expertise-grid { grid-template-columns: 1fr; }
+    footer { flex-direction: column; text-align: center; }
+    .hero { padding: 0 5% 6%; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="index.html" class="nav-back"><span class="nav-back-arrow">←</span> Back to Wister Group</a>
+  <a href="index.html" class="nav-logo">Wister <span>Group</span> LLC</a>
+  <a href="index.html#contact" class="nav-cta">Contact Jean</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-grid"></div>
+  <div class="hero-line"></div>
+  <div class="hero-line"></div>
+  <div class="hero-content">
+    <div class="hero-eyebrow">Clinical Research Professional · Wister Group LLC</div>
+    <h1 class="hero-name">Jean<br><em>Mastrangelo</em></h1>
+    <div class="hero-credentials">MSHS — Sr. Director, Clinical Operations | Pharmaceutical &amp; Biotechnology</div>
+    <p class="hero-summary">
+      Transformational Clinical Operations executive with 20+ years building, scaling, and leading global clinical development organizations across oncology, CNS, rare disease, and cardiometabolic indications. Proven track record delivering 5 NDA approvals through disciplined operational governance, enterprise risk management, and cross-functional executive leadership. Trusted strategic partner to C-suite, Boards, and global regulatory agencies.
+    </p>
+    <div class="hero-pills">
+      <span class="hero-pill">Phase I–III Trials</span>
+      <span class="hero-pill">Global Clinical Operations</span>
+      <span class="hero-pill">CRO Management</span>
+      <span class="hero-pill">IND · NDA · BLA</span>
+      <span class="hero-pill">CAR-T · Oncology</span>
+      <span class="hero-pill">CNS · Neurology</span>
+      <span class="hero-pill">First-in-Human Studies</span>
+      <span class="hero-pill">GCP Compliance</span>
+    </div>
+    <div class="hero-stats">
+      <div>
+        <div class="hero-stat-num">20<span>+</span></div>
+        <div class="hero-stat-label">Years Experience</div>
+      </div>
+      <div>
+        <div class="hero-stat-num">5</div>
+        <div class="hero-stat-label">NDA Approvals</div>
+      </div>
+      <div>
+        <div class="hero-stat-num">I–III</div>
+        <div class="hero-stat-label">All Clinical Phases</div>
+      </div>
+      <div>
+        <div class="hero-stat-num">$75M<span>+</span></div>
+        <div class="hero-stat-label">Budgets Overseen</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EXPERTISE -->
+<section class="expertise">
+  <div class="section-label">Core Expertise</div>
+  <h2 class="section-title">What Jean <em>Delivers</em></h2>
+  <div class="expertise-grid">
+    <div class="expertise-card">
+      <div class="exp-num">01</div>
+      <div class="exp-title">Clinical Program Management</div>
+      <div class="exp-desc">End-to-end operational leadership for global Phase I–III trials — from protocol design through regulatory submission. Proven in managing multi-cohort dose-escalation oncology studies, including FIH monoclonal antibody programs and CAR-T cell therapy trials.</div>
+    </div>
+    <div class="expertise-card">
+      <div class="exp-num">02</div>
+      <div class="exp-title">CRO & Vendor Management</div>
+      <div class="exp-desc">Primary accountability for CRO selection, RFP development, contract negotiation, and governance framework establishment. Extensive experience managing Australia-based and global CRO partners across leading oncology networks aligned with TGA, ICH-GCP E6(R2), and FDA requirements.</div>
+    </div>
+    <div class="expertise-card">
+      <div class="exp-num">03</div>
+      <div class="exp-title">Regulatory Strategy & Submissions</div>
+      <div class="exp-desc">Deep experience with FDA and international regulatory agencies on IND, NDA, and BLA submissions. Served as a key contributor on the LY03004 NDA team leading to successful approval for Schizophrenia treatment. Expertise in TGA pathway navigation and Australian clinical trial strategy.</div>
+    </div>
+    <div class="expertise-card">
+      <div class="exp-num">04</div>
+      <div class="exp-title">Biotech Startup Operations</div>
+      <div class="exp-desc">Specialized expertise in building clinical operations infrastructure from the ground up for early-stage biotech companies. Established U.S.-based offices and clinical operations teams, developed SOPs, and created the processes and structures that enable small teams to execute like large organizations.</div>
+    </div>
+    <div class="expertise-card">
+      <div class="exp-num">05</div>
+      <div class="exp-title">First-in-Human Trial Execution</div>
+      <div class="exp-desc">Directed the operational execution of complex FIH Phase 1 SAD/MAD studies. Managed Safety/Cohort Review Committee (S/CRC) meetings, implemented adaptive design protocols (3+3 and BOIN methodologies), and oversaw real-time cohort progression including sentinel dosing.</div>
+    </div>
+    <div class="expertise-card">
+      <div class="exp-num">06</div>
+      <div class="exp-title">GCP Compliance & Quality</div>
+      <div class="exp-desc">Maintained rigorous compliance with ICH, GCP, and all applicable regulatory requirements across global trials. Led SOP development and quality assurance initiatives, established department processes, and served as the single point of accountability for clinical operations integrity.</div>
+    </div>
+  </div>
+</section>
+
+<div class="gold-rule"></div>
+
+<!-- THERAPEUTIC AREAS -->
+<section class="therapeutic">
+  <div class="section-label">Therapeutic Focus</div>
+  <h2 class="section-title" style="color:var(--white)">Areas of <em>Specialization</em></h2>
+  <div class="therapeutic-layout">
+    <div class="therapeutic-text">
+      <p>Jean has accumulated rare breadth across therapeutic areas — spanning neurology, oncology, cardiovascular, rare disease, and pediatric conditions. This cross-therapeutic experience enables her to advise on development strategy, trial design, and operational execution with genuine scientific and clinical depth.</p>
+      <p>Her international trial experience spans the US, Europe, Australia, South America, Japan, and China — providing the global operational fluency that early-stage biotech companies need as they expand beyond domestic development.</p>
+      <div class="ta-grid" style="margin-top:1.5rem">
+        <span class="ta-tag">Oncology</span>
+        <span class="ta-tag">CAR-T Cell Therapy</span>
+        <span class="ta-tag">CNS / Neurology</span>
+        <span class="ta-tag">Cardiovascular</span>
+        <span class="ta-tag">Parkinson's Disease</span>
+        <span class="ta-tag">Schizophrenia</span>
+        <span class="ta-tag">Major Depression</span>
+        <span class="ta-tag">Pediatrics</span>
+        <span class="ta-tag">Epilepsy</span>
+        <span class="ta-tag">Rare Disease</span>
+        <span class="ta-tag">Biologics / Vaccines</span>
+        <span class="ta-tag">Immuno-Oncology</span>
+        <span class="ta-tag">Precision Medicine</span>
+        <span class="ta-tag">Cell-Based Therapy</span>
+      </div>
+    </div>
+    <div class="phase-list">
+      <div class="phase-item">
+        <div class="phase-badge">Ph I</div>
+        <div class="phase-text">
+          <strong>Phase I — First-in-Human & Dose Escalation</strong>
+          <span>SAD/MAD studies, FIH monoclonal antibody programs, dose-limiting toxicity evaluation, Safety Review Committee coordination, MTD/RP2D determination using adaptive design (3+3, BOIN)</span>
+        </div>
+      </div>
+      <div class="phase-item">
+        <div class="phase-badge">Ph II</div>
+        <div class="phase-text">
+          <strong>Phase II — Proof of Concept & Expansion</strong>
+          <span>Global Phase II oncology and CNS trials, patient enrollment strategy, cross-functional team leadership, site performance management across US, Europe, and Asia-Pacific</span>
+        </div>
+      </div>
+      <div class="phase-item">
+        <div class="phase-badge">Ph III</div>
+        <div class="phase-text">
+          <strong>Phase III — Pivotal & Registration Trials</strong>
+          <span>Pivotal trial execution, NDA submission support, regulatory agency interactions, budget management, CRO oversight, and cross-functional integration through to submission and approval</span>
+        </div>
+      </div>
+      <div class="phase-item">
+        <div class="phase-badge">IND</div>
+        <div class="phase-text">
+          <strong>IND Filing & Regulatory Strategy</strong>
+          <span>Full IND support for Ex-US startup clients entering US development, TGA pathway navigation for Australian programs, FDA and international health authority meeting preparation</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EXPERIENCE TIMELINE -->
+<section class="experience" id="experience">
+  <div class="section-label">Career History</div>
+  <h2 class="section-title">Professional <em>Experience</em></h2>
+  <div class="exp-layout">
+
+    <div class="exp-sidebar">
+      <div class="exp-sidebar-title">20+ Years of Progressive Clinical Leadership</div>
+      <p>Jean's career spans the full clinical development continuum — from early project support roles at BTG International through Director-level program management at global pharma companies and her current independent consulting practice.</p>
+      <p>She has supported clients ranging from early-stage biotech startups to established pharmaceutical companies, consistently delivering complex global trials on time and in compliance.</p>
+      <div class="exp-sidebar-stat">
+        <div class="exp-sidebar-stat-num">5</div>
+        <div class="exp-sidebar-stat-label">NDA Approvals Delivered</div>
+      </div>
+      <div class="exp-sidebar-stat" style="margin-top:1.5rem">
+        <div class="exp-sidebar-stat-num">$75M<span style="color:var(--gold)">+</span></div>
+        <div class="exp-sidebar-stat-label">Clinical Budgets Overseen</div>
+      </div>
+    </div>
+
+    <div class="timeline">
+
+      <!-- Wister Group -->
+      <div class="timeline-entry current">
+        <div class="timeline-meta">
+          <span class="timeline-period">May 2017 – Present</span>
+          <span class="timeline-current-badge">Current</span>
+        </div>
+        <div class="timeline-role">Senior Director &amp; Head of Clinical Operations</div>
+        <div class="timeline-company">Wister Group LLC — Clinical Operations Consultant</div>
+        <div class="timeline-clients">
+          <strong>Clients supported:</strong> Klus Pharma · Tmunity Therapeutics · Kinnate Bio · Marinus Pharmaceuticals · Hengrui Pharma · Karuna Therapeutics
+        </div>
+        <ul class="timeline-bullets">
+          <li>Served as single point of executive accountability for Global Clinical Operations across multi-program portfolios spanning oncology, CNS (Alzheimer's and Schizophrenia), rare disease, and pediatric indications.</li>
+          <li>Built Clinical Operations organizations from the ground up for multiple biotech startups — establishing governance frameworks, SOPs, risk management systems, KPIs, and scalable operational policies that directly enabled rapid pipeline advancement to clinical proof-of-concept.</li>
+          <li>Directed Phase III global trial startup and execution, overseeing country selection, regulatory submissions, site activation, vendor governance, and cross-functional alignment across multiple international regions to deliver inspection-ready, on-strategy program initiation.</li>
+          <li>Functioned as a trusted strategic partner to CEOs, Founders, and C-suite executives, co-developing clinical development pathways, target product profiles, and early clinical strategies aligned with corporate objectives and investor expectations.</li>
+          <li>Directed vendor selection, full-cycle CRO oversight, and alliance governance — ensuring seamless asset transitions from IND-enabling studies into first-in-human and proof-of-concept trials with no critical compliance deviations.</li>
+          <li>Provided executive guidance on protocol design, country and site strategy, patient recruitment optimization, and operational planning — consistently accelerating development timelines and improving enrollment efficiency.</li>
+        </ul>
+      </div>
+
+      <!-- DynamiCure -->
+      <div class="timeline-entry">
+        <div class="timeline-meta">
+          <span class="timeline-period">October 2023 – January 2026</span>
+        </div>
+        <div class="timeline-role">Senior Director &amp; Head of Clinical Operations</div>
+        <div class="timeline-company">DynamiCure Biotechnology — Senior Leadership Team Member</div>
+        <ul class="timeline-bullets">
+          <li>Led Global Clinical Operations as a member of the Senior Leadership Team for a multi-program solid tumor oncology portfolio, driving efficient IND-to-Phase 1 transitions while optimizing resource allocation and data quality across global investigative sites.</li>
+          <li>Designed and deployed a comprehensive risk management and mitigation framework across CRO and vendor networks, accelerating program timelines while maintaining continuous ICH-GCP compliance and 100% inspection readiness.</li>
+          <li>Built, mentored, and retained a high-performing Clinical Operations team; created and delivered leadership development programs that strengthened strategic execution capabilities and cross-functional collaboration across the organization.</li>
+          <li>Partnered with Research, Regulatory Affairs, CMC, and Data Management leadership to align early clinical strategies with corporate pipeline priorities, ensuring efficient resource deployment and milestone achievement.</li>
+        </ul>
+      </div>
+
+      <!-- Klus Pharma -->
+      <div class="timeline-entry">
+        <div class="timeline-meta">
+          <span class="timeline-period">June 2020 – September 2022</span>
+        </div>
+        <div class="timeline-role">Director of Clinical Operations</div>
+        <div class="timeline-company">Klus Pharma — Helped establish US-based office and Clinical Operations</div>
+        <ul class="timeline-bullets">
+          <li>Provided leadership and oversight for Global Phase II–III Oncology Clinical Trials, including project planning, budget management, resource allocation, and CRO oversight.</li>
+          <li>Directed personnel activities, managed resource distribution, and provided professional development guidance for clinical staff.</li>
+          <li>Key member of SOP development and Quality Assurance initiative; reviewed, maintained, and improved operational procedures for ICH and GCP compliance.</li>
+          <li>Developed key study documents including informed consent forms, study manuals, and operational plans (communication, escalation, oversight).</li>
+        </ul>
+      </div>
+
+      <!-- Luye Pharma -->
+      <div class="timeline-entry">
+        <div class="timeline-meta">
+          <span class="timeline-period">January 2014 – March 2019</span>
+        </div>
+        <div class="timeline-role">Associate Director, Clinical Program Management</div>
+        <div class="timeline-company">Luye Pharma Group, Ltd — US, Japan &amp; European Office Operations</div>
+        <ul class="timeline-bullets">
+          <li>Helped establish the US-based office and US Clinical Operations; provided oversight for the newly established Japan office and supported Global Clinical Development in the European office.</li>
+          <li>Led strategic input for 8 compounds within CNS and Oncology (Phase II–III, Global Trials); directed execution of complex FIH Phase 1 SAD/MAD studies.</li>
+          <li>Served as a key NDA team member for LY03004, leading to successful submission and FDA approval for the treatment of Schizophrenia.</li>
+          <li>Primary individual responsible for clinical trial outsourcing, vendor selection, scope negotiation, financial budgeting, forecasting, and tracking of trial expenses.</li>
+          <li>Supervised Clinical Study Managers, CRAs, and Data Managers across Phase I–III trials including bioequivalent studies conducted in-house and by CROs.</li>
+        </ul>
+      </div>
+
+      <!-- Clinlogix PM -->
+      <div class="timeline-entry">
+        <div class="timeline-meta">
+          <span class="timeline-period">September 2011 – December 2013</span>
+        </div>
+        <div class="timeline-role">Clinical Project Manager</div>
+        <div class="timeline-company">Clinlogix LLC</div>
+        <ul class="timeline-bullets">
+          <li>Managed overall study conduct including monitoring, data management, and regulatory departments; responsible for clinical trial monitoring schedule and tracking systems via MS Project.</li>
+          <li>Managed Data Safety Monitoring Board and Clinical Adjudication Committees; oversaw safety case processing.</li>
+          <li>Maintained clinical grant tracking database; generated periodic status reports and resolved payment inquiries from investigator sites.</li>
+          <li>Managed study activities from enrollment to regulatory submission for the Clinical Site in the SMO Business Unit; created and revised SOPs and Work Instructions.</li>
+        </ul>
+      </div>
+
+      <!-- Inovio -->
+      <div class="timeline-entry">
+        <div class="timeline-meta">
+          <span class="timeline-period">November 2010 – September 2011</span>
+        </div>
+        <div class="timeline-role">Clinical Scientist</div>
+        <div class="timeline-company">Inovio Pharmaceuticals</div>
+        <ul class="timeline-bullets">
+          <li>Coordinated clinical project activities including CRA-to-PM responsibilities; managed study-related documents, protocols, amendments, and clinical study reports.</li>
+          <li>Prepared FDA submissions and liaised with Regulatory; provided data management support including UAT, data entry, QC, and database lock.</li>
+          <li>Maintained central files currency for all required clinical trial documents throughout the trial lifecycle.</li>
+        </ul>
+      </div>
+
+      <!-- BTG -->
+      <div class="timeline-entry">
+        <div class="timeline-meta">
+          <span class="timeline-period">August 2006 – June 2010</span>
+        </div>
+        <div class="timeline-role">Assistant Clinical Manager / Clinical Lead / Project Administrator</div>
+        <div class="timeline-company">BTG International Inc.</div>
+        <ul class="timeline-bullets">
+          <li>Managed clinical project activities from CRA through PM level responsibilities; created study timelines, enrollment projections, CRFs, source documents, and protocols.</li>
+          <li>Developed protocols and amendments, SAPs, T&amp;L documents, clinical study reports, monitoring plans, and data management plans.</li>
+          <li>Prepared FDA submissions, Annual Reports to IND, and contributed to FDA meeting materials; monitored, co-monitored, and oversaw other CRAs within projects.</li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<div class="gold-rule"></div>
+
+<!-- EDUCATION -->
+<section class="education">
+  <div class="section-label">Education</div>
+  <h2 class="section-title" style="color:var(--white)">Academic <em>Foundation</em></h2>
+  <div class="edu-grid">
+    <div class="edu-card">
+      <div class="edu-school">Trident University</div>
+      <div class="edu-degree">Master of Science, Health Sciences — Clinical Research Administration</div>
+      <div class="edu-year">2009</div>
+      <span class="edu-honor">Summa Cum Laude</span>
+    </div>
+    <div class="edu-card">
+      <div class="edu-school">Pennsylvania State University</div>
+      <div class="edu-degree">Bachelor of Science, Business Administration</div>
+      <div class="edu-year">2000</div>
+    </div>
+    <div class="edu-card">
+      <div class="edu-school">Professional Certifications</div>
+      <div class="edu-degree">Six Sigma · Drug Regulatory Affairs · Clinical Data Management · Healthcare Administration &amp; Leadership</div>
+      <div class="edu-year">Ongoing Professional Development</div>
+    </div>
+  </div>
+</section>
+
+<!-- TECHNOLOGY & PUBLICATIONS -->
+<section class="technology">
+  <div class="section-label">Technology &amp; Publications</div>
+  <h2 class="section-title">Tools &amp; <em>Contributions</em></h2>
+  <div class="tech-layout">
+    <div>
+      <p style="font-size:0.9rem;line-height:1.8;color:var(--muted);margin-bottom:1.2rem">Jean brings deep fluency with the clinical technology stack used across pharmaceutical and biotech organizations — from project management platforms to EDC systems and regulatory databases.</p>
+      <div class="tech-tags">
+        <span class="tech-tag">MS Project</span>
+        <span class="tech-tag">Smartsheet</span>
+        <span class="tech-tag">SharePoint</span>
+        <span class="tech-tag">Medidata</span>
+        <span class="tech-tag">Medrio</span>
+        <span class="tech-tag">Veeva</span>
+        <span class="tech-tag">MS Office Suite</span>
+        <span class="tech-tag">EDC Systems</span>
+        <span class="tech-tag">CRM Platforms</span>
+        <span class="tech-tag">eCRF Development</span>
+        <span class="tech-tag">UAT</span>
+        <span class="tech-tag">Database Lock</span>
+      </div>
+    </div>
+    <div>
+      <div class="pub-box">
+        <div class="pub-label">Peer-Reviewed Publication</div>
+        <p class="pub-text">
+          D. Wright, K. Gibson, <strong>J. Barclay</strong>, A. Razumovsky, J. Rush, C. McColum — <em>High prevalence of right-to-left shunt in patients with symptomatic great saphenous incompetence and varicose veins.</em> Society of Vascular Surgery, August 2009.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section">
+  <div class="section-label" style="justify-content:center">Work With Jean</div>
+  <h2 class="section-title" style="color:var(--white)">Ready to <em>Advance</em> Your Program?</h2>
+  <p>Whether you're a biotech startup building your first clinical operations team, navigating a complex FIH oncology trial, or preparing an IND or NDA submission — Jean brings the senior-level expertise to move your program forward with confidence.</p>
+  <div class="cta-buttons">
+    <a href="index.html#contact" class="btn-gold">Contact Jean</a>
+    <a href="index.html" class="btn-ghost">Back to Wister Group</a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-brand">Wister <span>Group</span> LLC</div>
+  <p>© 2026 Wister Group LLC · Jean Mastrangelo, MSHS · Sr. Director, Clinical Operations</p>
+  <a href="index.html" class="footer-link">← Back to Main Site</a>
+</footer>
+
+<script>
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      e.target.style.opacity = '1';
+      e.target.style.transform = 'translateY(0)';
+    }
+  });
+}, { threshold: 0.08 });
+
+document.querySelectorAll('.expertise-card, .timeline-entry, .edu-card, .phase-item').forEach(el => {
+  el.style.opacity = '0';
+  el.style.transform = 'translateY(18px)';
+  el.style.transition = 'opacity 0.55s ease, transform 0.55s ease';
+  observer.observe(el);
+});
+</script>
+</body>
+</html>
