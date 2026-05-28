@@ -1,0 +1,872 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Wister Group LLC | Clinical Research & Emergency Response Consulting</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy: #0d1f35;
+    --deep: #071525;
+    --gold: #b89c5d;
+    --gold-light: #d4b97a;
+    --ivory: #f7f4ef;
+    --ivory-mid: #ede8df;
+    --slate: #8a9ab0;
+    --text: #1c2b3a;
+    --white: #ffffff;
+    --teal: #2a7f8c;
+    --teal-light: #3a9fae;
+  }
+
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--ivory);
+    color: var(--text);
+    overflow-x: hidden;
+  }
+
+  /* ─── NAV ─────────────────────────────────── */
+  nav {
+    position: fixed; top: 0; width: 100%; z-index: 100;
+    background: rgba(7,21,37,0.97);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(184,156,93,0.25);
+    padding: 0 5%;
+    display: flex; align-items: center; justify-content: space-between;
+    height: 72px;
+  }
+  .nav-logo {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.35rem; font-weight: 500;
+    color: var(--white); letter-spacing: 0.04em; text-decoration: none;
+  }
+  .nav-logo span { color: var(--gold); }
+  .nav-links { display: flex; gap: 2.5rem; list-style: none; }
+  .nav-links a {
+    font-size: 0.75rem; letter-spacing: 0.12em; text-transform: uppercase;
+    color: var(--slate); text-decoration: none; font-weight: 400; transition: color 0.2s;
+  }
+  .nav-links a:hover { color: var(--gold); }
+  .nav-cta {
+    background: transparent; border: 1px solid var(--gold);
+    color: var(--gold); padding: 0.5rem 1.4rem;
+    font-size: 0.72rem; letter-spacing: 0.1em; text-transform: uppercase;
+    cursor: pointer; font-family: 'DM Sans', sans-serif;
+    transition: all 0.25s; text-decoration: none; display: inline-block;
+  }
+  .nav-cta:hover { background: var(--gold); color: var(--deep); }
+
+  /* ─── HERO ─────────────────────────────────── */
+  .hero {
+    min-height: 100vh; background: var(--deep);
+    position: relative; display: flex; align-items: center; overflow: hidden;
+  }
+  .hero-bg {
+    position: absolute; inset: 0;
+    background:
+      radial-gradient(ellipse 80% 60% at 70% 50%, rgba(184,156,93,0.06) 0%, transparent 65%),
+      radial-gradient(ellipse 50% 80% at 10% 80%, rgba(13,31,53,0.8) 0%, transparent 60%),
+      linear-gradient(135deg, #071525 0%, #0d1f35 40%, #0a1929 100%);
+  }
+  .hero-lines { position: absolute; inset: 0; overflow: hidden; opacity: 0.12; }
+  .hero-lines::before {
+    content: ''; position: absolute;
+    width: 1px; height: 140%;
+    background: linear-gradient(to bottom, transparent, var(--gold), transparent);
+    left: 55%; top: -20%; transform: rotate(-8deg);
+    animation: shimmer 6s ease-in-out infinite;
+  }
+  .hero-lines::after {
+    content: ''; position: absolute;
+    width: 1px; height: 140%;
+    background: linear-gradient(to bottom, transparent, var(--gold-light), transparent);
+    left: 65%; top: -20%; transform: rotate(-8deg);
+    animation: shimmer 6s ease-in-out infinite 2s; opacity: 0.5;
+  }
+  @keyframes shimmer { 0%,100%{opacity:0.3} 50%{opacity:1} }
+
+  .hero-content {
+    position: relative; z-index: 2; padding: 0 8%; max-width: 950px;
+    animation: fadeUp 1s ease both;
+  }
+  @keyframes fadeUp {
+    from { opacity:0; transform:translateY(30px); }
+    to   { opacity:1; transform:translateY(0); }
+  }
+  .hero-eyebrow {
+    font-size: 0.72rem; letter-spacing: 0.22em; text-transform: uppercase;
+    color: var(--gold); font-weight: 400; margin-bottom: 1.8rem;
+    display: flex; align-items: center; gap: 1rem;
+  }
+  .hero-eyebrow::before { content:''; display:block; width:40px; height:1px; background:var(--gold); }
+  .hero h1 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(3rem, 6vw, 5.5rem); font-weight: 300;
+    color: var(--white); line-height: 1.08; margin-bottom: 0.6rem;
+  }
+  .hero h1 em { font-style: italic; color: var(--gold-light); }
+  .hero-names {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(0.95rem, 1.8vw, 1.35rem);
+    color: var(--slate); letter-spacing: 0.05em;
+    margin-bottom: 2rem; font-weight: 300; line-height: 1.6;
+  }
+  .hero-names .name-jean { color: rgba(184,156,93,0.85); }
+  .hero-names .name-mark { color: rgba(58,159,174,0.85); }
+  .hero-names .divider { color: rgba(255,255,255,0.2); margin: 0 0.7rem; }
+  .hero-desc {
+    font-size: 1.05rem; line-height: 1.8;
+    color: rgba(255,255,255,0.62);
+    max-width: 600px; margin-bottom: 3rem; font-weight: 300;
+  }
+  .hero-actions { display: flex; gap: 1.2rem; flex-wrap: wrap; }
+  .btn-primary {
+    background: var(--gold); color: var(--deep);
+    padding: 0.9rem 2.2rem; font-size: 0.78rem;
+    letter-spacing: 0.12em; text-transform: uppercase;
+    border: none; cursor: pointer; font-family: 'DM Sans', sans-serif; font-weight: 500;
+    text-decoration: none; display: inline-block; transition: all 0.25s;
+  }
+  .btn-primary:hover { background: var(--gold-light); transform: translateY(-2px); }
+  .btn-outline {
+    background: transparent; color: var(--white);
+    padding: 0.9rem 2.2rem; font-size: 0.78rem;
+    letter-spacing: 0.12em; text-transform: uppercase;
+    border: 1px solid rgba(255,255,255,0.3); cursor: pointer;
+    font-family: 'DM Sans', sans-serif; font-weight: 400;
+    text-decoration: none; display: inline-block; transition: all 0.25s;
+  }
+  .btn-outline:hover { border-color: var(--white); background: rgba(255,255,255,0.07); }
+
+  .hero-stats {
+    position: absolute; right: 8%; bottom: 12%;
+    display: flex; flex-direction: column; gap: 2.5rem;
+    animation: fadeUp 1s ease both 0.4s;
+  }
+  .hero-stat { text-align: right; }
+  .hero-stat-num {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 3rem; font-weight: 300; color: var(--white); line-height: 1;
+  }
+  .hero-stat-num span { color: var(--gold); }
+  .hero-stat-label {
+    font-size: 0.68rem; letter-spacing: 0.15em; text-transform: uppercase;
+    color: var(--slate); margin-top: 0.2rem;
+  }
+  .hero-divider { width: 1px; height: 60px; background: rgba(184,156,93,0.3); align-self: flex-end; }
+
+  /* ─── SHARED SECTION ─────────────────────── */
+  section { padding: 100px 8%; }
+  .section-label {
+    font-size: 0.68rem; letter-spacing: 0.22em; text-transform: uppercase;
+    color: var(--gold); font-weight: 400; margin-bottom: 1rem;
+    display: flex; align-items: center; gap: 0.8rem;
+  }
+  .section-label::before { content:''; display:block; width:28px; height:1px; background:var(--gold); }
+  .section-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(2.2rem, 4vw, 3.6rem);
+    font-weight: 300; line-height: 1.1; color: var(--navy); margin-bottom: 1.5rem;
+  }
+  .section-title em { font-style: italic; color: var(--gold); }
+
+  /* ─── PRINCIPALS ─────────────────────────── */
+  .principals { background: var(--white); padding: 100px 8%; }
+  .principals-intro { text-align: center; max-width: 680px; margin: 0 auto 4rem; }
+  .principals-intro .section-label { justify-content: center; }
+  .principals-intro p { font-size: 1.05rem; line-height: 1.85; color: #3a4a5c; font-weight: 300; }
+  .principals-grid {
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 2px; background: var(--ivory-mid);
+  }
+  .principal-card {
+    background: var(--white); padding: 3.5rem 3rem;
+    position: relative; overflow: hidden;
+  }
+  .principal-card.jean { border-top: 3px solid var(--gold); }
+  .principal-card.mark { border-top: 3px solid var(--teal); }
+  .principal-card::before {
+    content: ''; position: absolute; top: 0; right: 0;
+    width: 200px; height: 200px; border-radius: 50%;
+    opacity: 0.04; transform: translate(40%,-40%);
+  }
+  .principal-card.jean::before { background: var(--gold); }
+  .principal-card.mark::before { background: var(--teal); }
+
+  .principal-initial {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 4rem; font-weight: 300; line-height: 1; margin-bottom: 1.2rem;
+  }
+  .jean .principal-initial { color: var(--gold); }
+  .mark .principal-initial { color: var(--teal); }
+
+  .principal-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.9rem; font-weight: 500; color: var(--navy); margin-bottom: 0.25rem;
+  }
+  .principal-role-tag {
+    display: inline-block;
+    font-size: 0.65rem; letter-spacing: 0.16em; text-transform: uppercase;
+    padding: 0.28rem 0.75rem; font-weight: 500; margin-bottom: 1.8rem;
+  }
+  .jean .principal-role-tag { background: rgba(184,156,93,0.1); color: var(--gold); }
+  .mark .principal-role-tag { background: rgba(42,127,140,0.1); color: var(--teal); }
+
+  .principal-bio {
+    font-size: 0.95rem; line-height: 1.85; color: #3a4a5c;
+    font-weight: 300; margin-bottom: 2rem;
+  }
+  .principal-tags { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+  .principal-tag {
+    font-size: 0.68rem; letter-spacing: 0.07em; text-transform: uppercase;
+    padding: 0.32rem 0.8rem; font-weight: 400;
+  }
+  .jean .principal-tag { border: 1px solid rgba(184,156,93,0.3); color: #8a6a30; background: rgba(184,156,93,0.05); }
+  .mark .principal-tag { border: 1px solid rgba(42,127,140,0.3); color: #1a6070; background: rgba(42,127,140,0.05); }
+
+  /* ─── SERVICES ───────────────────────────── */
+  .services-section { background: var(--ivory); }
+  .services-header { text-align: center; margin-bottom: 3.5rem; }
+  .services-header .section-label { justify-content: center; }
+  .services-intro-text {
+    text-align: center; font-size: 0.95rem; color: #4a5a6c;
+    line-height: 1.75; max-width: 580px; margin: 0 auto; font-weight: 300;
+  }
+  .services-dual {
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 2px; background: var(--ivory-mid);
+  }
+  .services-col { background: var(--white); }
+  .services-col-header {
+    padding: 2rem 2.5rem 1.5rem;
+    border-bottom: 1px solid var(--ivory-mid);
+    display: flex; align-items: center; gap: 1rem;
+  }
+  .col-badge {
+    font-size: 0.63rem; letter-spacing: 0.14em; text-transform: uppercase;
+    padding: 0.28rem 0.75rem; font-weight: 500;
+  }
+  .jean-col .col-badge { background: rgba(184,156,93,0.1); color: var(--gold); }
+  .mark-col .col-badge { background: rgba(42,127,140,0.1); color: var(--teal); }
+  .col-person {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.1rem; color: var(--navy); font-weight: 400;
+  }
+  .service-item {
+    padding: 1.8rem 2.5rem; border-bottom: 1px solid var(--ivory-mid);
+    transition: background 0.25s; position: relative; overflow: hidden;
+  }
+  .service-item::before {
+    content: ''; position: absolute; left: 0; top: 0; bottom: 0;
+    width: 0; transition: width 0.3s;
+  }
+  .jean-col .service-item::before { background: var(--gold); }
+  .mark-col .service-item::before { background: var(--teal); }
+  .service-item:hover::before { width: 3px; }
+  .service-item:hover { background: var(--ivory); }
+  .service-item-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.15rem; color: var(--navy); font-weight: 500; margin-bottom: 0.4rem;
+  }
+  .service-item-desc {
+    font-size: 0.86rem; line-height: 1.7; color: #5a6a7c; font-weight: 300;
+  }
+
+  /* ─── EXPERIENCE ─────────────────────────── */
+  .experience { background: var(--deep); padding: 100px 8%; }
+  .experience .section-title { color: var(--white); }
+  .experience-dual {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 5%; margin-top: 3.5rem;
+  }
+  .exp-col-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.3rem; font-weight: 400; margin-bottom: 2rem;
+    padding-bottom: 1rem; border-bottom: 1px solid rgba(255,255,255,0.08);
+  }
+  .jean-exp-title { color: var(--gold); }
+  .mark-exp-title { color: var(--teal-light); }
+
+  .timeline { position: relative; padding-left: 1.8rem; }
+  .timeline::before {
+    content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 1px;
+  }
+  .jean-exp .timeline::before { background: rgba(184,156,93,0.25); }
+  .mark-exp .timeline::before { background: rgba(42,127,140,0.25); }
+  .timeline-item { position: relative; margin-bottom: 2.5rem; }
+  .timeline-item::before {
+    content: ''; position: absolute; left: -1.8rem; top: 0.4rem;
+    width: 7px; height: 7px; border-radius: 50%;
+  }
+  .jean-exp .timeline-item::before { background: var(--gold); box-shadow: 0 0 0 4px rgba(184,156,93,0.12); }
+  .mark-exp .timeline-item::before { background: var(--teal-light); box-shadow: 0 0 0 4px rgba(42,127,140,0.12); }
+  .timeline-year {
+    font-size: 0.68rem; letter-spacing: 0.16em; text-transform: uppercase; margin-bottom: 0.3rem;
+  }
+  .jean-exp .timeline-year { color: var(--gold); }
+  .mark-exp .timeline-year { color: var(--teal-light); }
+  .timeline-role {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.25rem; color: var(--white); font-weight: 400; margin-bottom: 0.15rem;
+  }
+  .timeline-company { font-size: 0.82rem; color: var(--slate); margin-bottom: 0.6rem; }
+  .timeline-desc { font-size: 0.87rem; line-height: 1.75; color: rgba(255,255,255,0.45); font-weight: 300; }
+
+  /* ─── CREDENTIALS ─────────────────────────── */
+  .credentials { background: var(--ivory); }
+  .cred-grid {
+    display: grid; grid-template-columns: repeat(4,1fr);
+    gap: 1.5px; background: var(--ivory-mid); border: 1.5px solid var(--ivory-mid); margin-top: 3rem;
+  }
+  .cred-card {
+    background: var(--white); padding: 2.4rem 2rem; text-align: center; transition: background 0.3s;
+  }
+  .cred-card:hover { background: var(--navy); }
+  .cred-card:hover .cred-title,
+  .cred-card:hover .cred-sub { color: var(--white) !important; }
+  .cred-icon-wrap {
+    width: 52px; height: 52px; border-radius: 50%;
+    margin: 0 auto 1.2rem; display: flex; align-items: center; justify-content: center;
+  }
+  .cred-jean .cred-icon-wrap { background: rgba(184,156,93,0.1); }
+  .cred-mark .cred-icon-wrap { background: rgba(42,127,140,0.1); }
+  .cred-icon { font-size: 1.4rem; }
+  .cred-owner {
+    font-size: 0.6rem; letter-spacing: 0.14em; text-transform: uppercase; margin-bottom: 0.5rem; font-weight: 500;
+  }
+  .cred-jean .cred-owner { color: var(--gold); }
+  .cred-mark .cred-owner { color: var(--teal); }
+  .cred-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.1rem; color: var(--navy); font-weight: 500; margin-bottom: 0.4rem; transition: color 0.3s;
+  }
+  .cred-sub { font-size: 0.78rem; color: var(--slate); line-height: 1.5; transition: color 0.3s; }
+
+  /* ─── INDUSTRIES ─────────────────────────── */
+  .industries { background: var(--navy); display: grid; grid-template-columns: 1fr 1.6fr; gap: 6%; align-items: start; }
+  .industries .section-title { color: var(--white); }
+  .industries-text p { font-size: 0.95rem; line-height: 1.8; color: rgba(255,255,255,0.55); font-weight: 300; margin-bottom: 1rem; }
+  .industry-tags { display: flex; flex-wrap: wrap; gap: 0.7rem; margin-top: 2rem; }
+  .industry-tag {
+    border: 1px solid rgba(184,156,93,0.35); padding: 0.45rem 1.1rem;
+    font-size: 0.75rem; letter-spacing: 0.08em; text-transform: uppercase;
+    color: rgba(255,255,255,0.65); transition: all 0.25s;
+  }
+  .industry-tag:hover { border-color: var(--gold); color: var(--gold); background: rgba(184,156,93,0.07); }
+  .results-list { margin-top: 1rem; }
+  .result-item {
+    border-bottom: 1px solid rgba(255,255,255,0.07); padding: 1.6rem 0;
+    display: grid; grid-template-columns: auto 1fr; gap: 1.5rem; align-items: start;
+  }
+  .result-num { font-family: 'Cormorant Garamond', serif; font-size: 2.2rem; color: var(--gold); font-weight: 300; line-height: 1; }
+  .result-text strong { display: block; color: var(--white); font-size: 0.92rem; font-weight: 500; margin-bottom: 0.3rem; }
+  .result-text span { color: rgba(255,255,255,0.45); font-size: 0.83rem; line-height: 1.6; }
+
+  /* ─── TESTIMONIAL ─────────────────────────── */
+  .testimonial { background: var(--white); text-align: center; padding: 100px 15%; }
+  .quote-mark { font-family: 'Cormorant Garamond', serif; font-size: 8rem; line-height: 0.5; color: var(--ivory-mid); margin-bottom: 2rem; display: block; }
+  .quote-text { font-family: 'Cormorant Garamond', serif; font-size: clamp(1.4rem, 2.8vw, 2.1rem); font-weight: 300; font-style: italic; color: var(--navy); line-height: 1.5; margin-bottom: 2rem; }
+  .quote-attr { font-size: 0.78rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--slate); }
+  .quote-attr strong { color: var(--gold); font-weight: 500; }
+
+  /* ─── CONTACT ─────────────────────────────── */
+  .contact { background: var(--deep); display: grid; grid-template-columns: 1fr 1.2fr; gap: 8%; align-items: center; }
+  .contact .section-title { color: var(--white); }
+  .contact-text p { font-size: 0.95rem; line-height: 1.8; color: rgba(255,255,255,0.5); font-weight: 300; margin-bottom: 2rem; }
+  .contact-details { margin-top: 2rem; }
+  .contact-detail { display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem; color: rgba(255,255,255,0.6); font-size: 0.9rem; }
+  .contact-detail-icon { width: 36px; height: 36px; background: rgba(184,156,93,0.12); display: flex; align-items: center; justify-content: center; flex-shrink: 0; font-size: 0.95rem; }
+  .contact-form { background: rgba(255,255,255,0.04); padding: 3rem; }
+  .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+  .form-group { margin-bottom: 1.2rem; }
+  .form-group label { display: block; font-size: 0.68rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--slate); margin-bottom: 0.5rem; }
+  .form-group input,
+  .form-group select,
+  .form-group textarea {
+    width: 100%; background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.1);
+    padding: 0.85rem 1rem; color: var(--white);
+    font-family: 'DM Sans', sans-serif; font-size: 0.9rem;
+    outline: none; transition: border-color 0.2s; appearance: none;
+  }
+  .form-group select option { background: var(--deep); }
+  .form-group input:focus,
+  .form-group select:focus,
+  .form-group textarea:focus { border-color: var(--gold); }
+  .form-group textarea { resize: vertical; min-height: 110px; }
+  .form-submit {
+    width: 100%; background: var(--gold); color: var(--deep);
+    padding: 1rem; border: none; cursor: pointer;
+    font-family: 'DM Sans', sans-serif; font-weight: 500;
+    font-size: 0.78rem; letter-spacing: 0.14em; text-transform: uppercase;
+    transition: all 0.25s; margin-top: 0.5rem;
+  }
+  .form-submit:hover { background: var(--gold-light); }
+
+  /* ─── FOOTER ─────────────────────────────── */
+  footer {
+    background: #040f1d; padding: 2.5rem 8%;
+    display: flex; align-items: center; justify-content: space-between;
+    border-top: 1px solid rgba(184,156,93,0.1); flex-wrap: wrap; gap: 1rem;
+  }
+  .footer-brand { font-family: 'Cormorant Garamond', serif; font-size: 1.15rem; color: var(--white); letter-spacing: 0.05em; }
+  .footer-brand span { color: var(--gold); }
+  footer p { font-size: 0.75rem; color: rgba(255,255,255,0.3); letter-spacing: 0.04em; }
+  .footer-links { display: flex; gap: 1.8rem; }
+  .footer-links a { font-size: 0.72rem; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(255,255,255,0.3); text-decoration: none; transition: color 0.2s; }
+  .footer-links a:hover { color: var(--gold); }
+
+  .gold-rule { height: 1px; background: linear-gradient(to right, transparent, var(--gold), transparent); opacity: 0.3; }
+
+  /* ─── RESPONSIVE ─────────────────────────── */
+  @media (max-width: 900px) {
+    .principals-grid, .services-dual, .experience-dual, .industries, .contact { grid-template-columns: 1fr; }
+    .cred-grid { grid-template-columns: 1fr 1fr; }
+    .hero-stats { display: none; }
+    .nav-links { display: none; }
+    .testimonial { padding: 80px 8%; }
+    .form-row { grid-template-columns: 1fr; }
+    .principal-card { padding: 2.5rem 2rem; }
+  }
+  @media (max-width: 600px) {
+    section { padding: 70px 5%; }
+    .cred-grid { grid-template-columns: 1fr; }
+    footer { flex-direction: column; text-align: center; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#" class="nav-logo">Wister <span>Group</span> LLC</a>
+  <ul class="nav-links">
+    <li><a href="#team">Our Team</a></li>
+    <li><a href="#services">Services</a></li>
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#industries">Focus</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <a href="#contact" class="nav-cta">Engage Now</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-lines"></div>
+  <div class="hero-content">
+    <div class="hero-eyebrow">Clinical Research · Emergency Response · Life Sciences Consulting</div>
+    <h1>Two Disciplines.<br><em>One Firm.</em></h1>
+    <div class="hero-names">
+      <span class="name-jean">Jean Mastrangelo</span> — Clinical Research Professional
+      <span class="divider">·</span>
+      <span class="name-mark">Mark Mastrangelo</span> — Emergency Response Educator
+    </div>
+    <p class="hero-desc">
+      Wister Group LLC brings together deep clinical research expertise and certified emergency response training under one roof — delivering integrated consulting solutions for pharmaceutical, biotechnology, and life sciences organizations.
+    </p>
+    <div class="hero-actions">
+      <a href="#contact" class="btn-primary">Start a Conversation</a>
+      <a href="#team" class="btn-outline">Meet the Team</a>
+    </div>
+  </div>
+  <div class="hero-stats">
+    <div class="hero-stat">
+      <div class="hero-stat-num">20<span>+</span></div>
+      <div class="hero-stat-label">Years Combined</div>
+    </div>
+    <div class="hero-divider"></div>
+    <div class="hero-stat">
+      <div class="hero-stat-num">2</div>
+      <div class="hero-stat-label">Expert Principals</div>
+    </div>
+    <div class="hero-divider"></div>
+    <div class="hero-stat">
+      <div class="hero-stat-num">1</div>
+      <div class="hero-stat-label">Unified Practice</div>
+    </div>
+  </div>
+</section>
+
+<!-- PRINCIPALS -->
+<section class="principals" id="team">
+  <div class="principals-intro">
+    <div class="section-label">Our Team</div>
+    <h2 class="section-title">Meet the <em>Principals</em></h2>
+    <p>Wister Group LLC is built around two seasoned professionals whose complementary expertise creates a uniquely full-spectrum consulting firm for the life sciences industry.</p>
+  </div>
+  <div class="principals-grid">
+
+    <div class="principal-card jean">
+      <div class="principal-initial">JB</div>
+      <div class="principal-name"><a href="jeanmastrangelo.html" style="color:inherit;text-decoration:none;">Jean Mastrangelo</a></div>
+      <div class="principal-role-tag">Clinical Research Professional</div>
+      <p class="principal-bio">
+        Jean is a clinical research professional with deep expertise across the pharmaceutical and biotechnology sectors. She brings a rigorous, science-driven approach to clinical development — supporting organizations from protocol design and site management through regulatory submission and post-market surveillance. Her background spans both sponsor and CRO environments, giving her the breadth to advise clients at every stage of the drug development lifecycle. Jean's strength lies in translating complex clinical data into actionable strategy, helping her clients reach regulatory milestones with precision and confidence.
+      </p>
+      <div class="principal-tags">
+        <span class="principal-tag">Clinical Research</span>
+        <span class="principal-tag">Pharma &amp; Biotech</span>
+        <span class="principal-tag">Regulatory Affairs</span>
+        <span class="principal-tag">Protocol Development</span>
+        <span class="principal-tag">GCP Compliance</span>
+        <span class="principal-tag">Clinical Operations</span>
+<a href="jeanmastrangelo.html" style="display:inline-block;margin-top:1.5rem;font-size:0.72rem;letter-spacing:0.12em;text-transform:uppercase;color:#b89c5d;text-decoration:none;border-bottom:1px solid rgba(184,156,93,0.4);padding-bottom:2px;">View Full Profile →</a>
+      </div>
+    </div>
+
+    <div class="principal-card mark">
+      <div class="principal-initial">MM</div>
+      <div class="principal-name">Mark Mastrangelo</div>
+      <div class="principal-role-tag">Emergency Response Trainer &amp; Educator</div>
+      <p class="principal-bio">
+        Mark is a certified emergency response trainer and educator with extensive experience designing and delivering life-safety programs for organizations in regulated industries. He specializes in CPR, First Aid, and emergency preparedness — creating curricula that go beyond generic certification to address the specific hazards and protocols unique to pharmaceutical and industrial environments. Mark's programs are built to instill genuine confidence in the workforce, ensuring employees are not just trained on paper but truly prepared to act decisively when it matters most.
+      </p>
+      <div class="principal-tags">
+        <span class="principal-tag">CPR Certification</span>
+        <span class="principal-tag">First Aid Training</span>
+        <span class="principal-tag">Emergency Response</span>
+        <span class="principal-tag">Safety Programs</span>
+        <span class="principal-tag">OSHA Compliance</span>
+        <span class="principal-tag">Workforce Education</span>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<div class="gold-rule"></div>
+
+<!-- SERVICES -->
+<section class="services-section" id="services">
+  <div class="services-header">
+    <div class="section-label">Services</div>
+    <h2 class="section-title">What We <em>Deliver</em></h2>
+    <p class="services-intro-text">Two distinct service tracks, each led by a dedicated principal — together representing a comprehensive consulting offering for life sciences organizations.</p>
+  </div>
+  <div class="services-dual">
+
+    <div class="services-col jean-col">
+      <div class="services-col-header">
+        <span class="col-badge">Jean Mastrangelo</span>
+        <span class="col-person">Clinical Research</span>
+      </div>
+      <div class="service-item">
+        <div class="service-item-title">Clinical Trial Management &amp; Operations</div>
+        <div class="service-item-desc">End-to-end clinical trial support — from study start-up and site selection through monitoring, data management, and close-out — aligned with ICH-GCP and sponsor requirements.</div>
+      </div>
+      <div class="service-item">
+        <div class="service-item-title">Regulatory Strategy &amp; Submission Support</div>
+        <div class="service-item-desc">Guidance on regulatory pathway selection, IND/NDA/BLA strategy, and submission document preparation for FDA and international health authorities.</div>
+      </div>
+      <div class="service-item">
+        <div class="service-item-title">Protocol &amp; SOP Development</div>
+        <div class="service-item-desc">Authoring and reviewing clinical protocols, informed consent documents, and standard operating procedures to meet current regulatory standards.</div>
+      </div>
+      <div class="service-item">
+        <div class="service-item-title">GCP Compliance &amp; Audit Readiness</div>
+        <div class="service-item-desc">Gap assessments, audit preparation, and remediation support for sponsors, CROs, and clinical sites requiring GCP compliance strengthening.</div>
+      </div>
+      <div class="service-item">
+        <div class="service-item-title">Pharmaceutical Operations Advisory</div>
+        <div class="service-item-desc">Strategic guidance for pharma and biotech organizations navigating process optimization, quality system development, and operational scale-up.</div>
+      </div>
+    </div>
+
+    <div class="services-col mark-col">
+      <div class="services-col-header">
+        <span class="col-badge">Mark Mastrangelo</span>
+        <span class="col-person">Emergency Response &amp; Safety</span>
+      </div>
+      <div class="service-item">
+        <div class="service-item-title">CPR &amp; AED Certification Training</div>
+        <div class="service-item-desc">Certified CPR, AED, and cardiac emergency response training for organizations — customized to workforce size, environment, and regulatory requirements.</div>
+      </div>
+      <div class="service-item">
+        <div class="service-item-title">First Aid Program Development &amp; Training</div>
+        <div class="service-item-desc">Comprehensive first aid curricula tailored to pharmaceutical and industrial settings, ensuring employees can respond effectively to workplace medical emergencies.</div>
+      </div>
+      <div class="service-item">
+        <div class="service-item-title">Emergency Response Planning</div>
+        <div class="service-item-desc">Design and implementation of site-specific emergency response plans, including evacuation procedures, medical response protocols, and crisis communication frameworks.</div>
+      </div>
+      <div class="service-item">
+        <div class="service-item-title">OSHA Compliance &amp; Safety Programs</div>
+        <div class="service-item-desc">Written safety program development, hazard assessments, recordkeeping systems, and OSHA-aligned training to support regulatory compliance and workforce protection.</div>
+      </div>
+      <div class="service-item">
+        <div class="service-item-title">Safety Culture &amp; Workforce Education</div>
+        <div class="service-item-desc">Building durable safety cultures through instructor-led training, tabletop exercises, and ongoing education that keeps preparedness front and center.</div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- EXPERIENCE -->
+<section class="experience" id="experience">
+  <div class="section-label">Track Record</div>
+  <h2 class="section-title" style="color:var(--white);">Professional <em>Experience</em></h2>
+  <div class="experience-dual">
+
+    <div class="jean-exp">
+      <div class="exp-col-title jean-exp-title">Jean Mastrangelo — Clinical Research</div>
+      <div class="timeline">
+        <div class="timeline-item">
+          <div class="timeline-year">Present</div>
+          <div class="timeline-role">Principal, Clinical Research Consulting</div>
+          <div class="timeline-company">Wister Group LLC</div>
+          <div class="timeline-desc">Leading clinical research consulting engagements for pharmaceutical and biotechnology clients — providing strategic and operational guidance across the clinical development continuum.</div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-year">Career</div>
+          <div class="timeline-role">Clinical Research Professional</div>
+          <div class="timeline-company">Pharmaceutical &amp; Biotech Industry</div>
+          <div class="timeline-desc">Progressive experience within sponsor and CRO environments — spanning clinical operations, regulatory affairs, study management, and compliance in FDA-regulated settings.</div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-year">Core Expertise</div>
+          <div class="timeline-role">Clinical &amp; Regulatory Competencies</div>
+          <div class="timeline-company">FDA · ICH-GCP · IND/NDA/BLA</div>
+          <div class="timeline-desc">Clinical trial management · GCP compliance · Regulatory submissions · Protocol authoring · Informed consent · Site monitoring · Data integrity · Audit readiness.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="mark-exp">
+      <div class="exp-col-title mark-exp-title">Mark Mastrangelo — Emergency Response</div>
+      <div class="timeline">
+        <div class="timeline-item">
+          <div class="timeline-year">Present</div>
+          <div class="timeline-role">Principal, Emergency Response &amp; Training</div>
+          <div class="timeline-company">Wister Group LLC</div>
+          <div class="timeline-desc">Designing and delivering certified emergency response and safety training programs for pharmaceutical, industrial, and community organizations across regulated environments.</div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-year">Career</div>
+          <div class="timeline-role">Certified Emergency Response Trainer</div>
+          <div class="timeline-company">Multi-Industry Experience</div>
+          <div class="timeline-desc">An extensive career in emergency response education — developing instructor-led programs, training curricula, and safety systems for organizations of varying size and complexity.</div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-year">Core Expertise</div>
+          <div class="timeline-role">Safety &amp; Emergency Competencies</div>
+          <div class="timeline-company">OSHA · CPR/AED · First Aid · ERP</div>
+          <div class="timeline-desc">CPR/AED certification · First aid training · Emergency response plans · OSHA compliance · Hazard assessments · Written safety programs · Crisis preparedness · Workforce education.</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- CREDENTIALS -->
+<section class="credentials">
+  <div class="section-label">Qualifications</div>
+  <h2 class="section-title">Combined <em>Expertise</em></h2>
+  <div class="cred-grid">
+    <div class="cred-card cred-jean">
+      <div class="cred-icon-wrap"><div class="cred-icon">🧬</div></div>
+      <div class="cred-owner">Jean Mastrangelo</div>
+      <div class="cred-title">Clinical Research</div>
+      <div class="cred-sub">Pharmaceutical &amp; biotech clinical development from IND through post-market</div>
+    </div>
+    <div class="cred-card cred-jean">
+      <div class="cred-icon-wrap"><div class="cred-icon">📋</div></div>
+      <div class="cred-owner">Jean Mastrangelo</div>
+      <div class="cred-title">GCP &amp; Regulatory</div>
+      <div class="cred-sub">FDA submissions, GCP compliance, audit readiness, and regulatory strategy</div>
+    </div>
+    <div class="cred-card cred-mark">
+      <div class="cred-icon-wrap"><div class="cred-icon">❤️</div></div>
+      <div class="cred-owner">Mark Mastrangelo</div>
+      <div class="cred-title">CPR &amp; First Aid</div>
+      <div class="cred-sub">Certified CPR/AED and first aid training tailored to regulated workplaces</div>
+    </div>
+    <div class="cred-card cred-mark">
+      <div class="cred-icon-wrap"><div class="cred-icon">🛡️</div></div>
+      <div class="cred-owner">Mark Mastrangelo</div>
+      <div class="cred-title">Emergency Response</div>
+      <div class="cred-sub">OSHA compliance, emergency response planning, and safety program design</div>
+    </div>
+  </div>
+</section>
+
+<div class="gold-rule"></div>
+
+<!-- INDUSTRIES -->
+<section class="industries" id="industries">
+  <div class="industries-text">
+    <div class="section-label">Focus Areas</div>
+    <h2 class="section-title">Industries We <em>Serve</em></h2>
+    <p>Wister Group LLC brings specialized expertise across the life sciences value chain — from early-stage biotech to established pharmaceutical manufacturers and the broader healthcare ecosystem.</p>
+    <div class="industry-tags">
+      <span class="industry-tag">Pharmaceutical Manufacturing</span>
+      <span class="industry-tag">Biotechnology</span>
+      <span class="industry-tag">Clinical Research Orgs</span>
+      <span class="industry-tag">Medical Devices</span>
+      <span class="industry-tag">Specialty Pharma</span>
+      <span class="industry-tag">Biologics</span>
+      <span class="industry-tag">CDMO</span>
+      <span class="industry-tag">Life Sciences</span>
+      <span class="industry-tag">Healthcare Organizations</span>
+      <span class="industry-tag">Corporate &amp; Industrial</span>
+    </div>
+  </div>
+  <div>
+    <div class="results-list">
+      <div class="result-item">
+        <div class="result-num">2</div>
+        <div class="result-text">
+          <strong>Senior-Level Principals, Every Engagement</strong>
+          <span>You work directly with Jean or Mark — not junior staff. Every project is led by a subject-matter expert from day one.</span>
+        </div>
+      </div>
+      <div class="result-item">
+        <div class="result-num">20+</div>
+        <div class="result-text">
+          <strong>Years of Combined Industry Experience</strong>
+          <span>Jean and Mark together bring decades of hands-on expertise across clinical research and emergency response in regulated environments.</span>
+        </div>
+      </div>
+      <div class="result-item">
+        <div class="result-num">100%</div>
+        <div class="result-text">
+          <strong>Tailored Engagements</strong>
+          <span>No off-the-shelf solutions. Every consulting engagement and training program is customized to your organization's specific needs and goals.</span>
+        </div>
+      </div>
+      <div class="result-item">
+        <div class="result-num">1</div>
+        <div class="result-text">
+          <strong>Uniquely Integrated Firm</strong>
+          <span>The only firm offering combined clinical research consulting and emergency response training under a single trusted partnership — built for life sciences.</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIAL -->
+<section class="testimonial">
+  <span class="quote-mark">"</span>
+  <p class="quote-text">The training program provided by Wister Group LLC was top-notch. Our employees are now better prepared for any emergency situation.</p>
+  <div class="quote-attr"><strong>Donna Hoder</strong> — Local Community Group</div>
+</section>
+
+<div class="gold-rule"></div>
+
+<!-- CONTACT -->
+<section class="contact" id="contact">
+  <div class="contact-text">
+    <div class="section-label">Contact</div>
+    <h2 class="section-title" style="color:var(--white);">Let's Work <em>Together</em></h2>
+    <p>
+      Whether you need clinical research expertise, certified safety training, or both — Wister Group LLC is ready to partner with your organization. Reach out to start the conversation with Jean or Mark directly.
+    </p>
+   <div class="contact-details">
+      <div class="contact-detail">
+        <div class="contact-detail-icon">🌐</div>
+        <span style="color:rgba(255,255,255,0.6);">wistergroupllc.com</span>
+      </div>
+      <div class="contact-detail">
+        <div class="contact-detail-icon">💼</div>
+        <span style="color:rgba(255,255,255,0.6);">linkedin.com/in/jbmastrangelo</span>
+      </div>
+      <div class="contact-detail">
+        <div class="contact-detail-icon">📧</div>
+        <span style="color:rgba(255,255,255,0.6);">jmastrangelo@wistergroupllc.com</span>
+      </div>
+      <div class="contact-detail">
+        <div class="contact-detail-icon">📞</div>
+        <span style="color:rgba(255,255,255,0.6);">267-888-7498</span>
+      </div>
+      </div>
+    </div>
+  </div>
+  <div class="contact-form">
+    <div class="form-row">
+      <div class="form-group">
+        <label>First Name</label>
+        <input type="text" placeholder="Jane">
+      </div>
+      <div class="form-group">
+        <label>Last Name</label>
+        <input type="text" placeholder="Smith">
+      </div>
+    </div>
+    <div class="form-group">
+      <label>Company / Organization</label>
+      <input type="text" placeholder="Pharma Corp Inc.">
+    </div>
+    <div class="form-group">
+      <label>Email Address</label>
+      <input type="email" placeholder="jane@pharmacorp.com">
+    </div>
+    <div class="form-group">
+      <label>Area of Interest</label>
+      <select>
+        <option value="">Select a service area…</option>
+        <optgroup label="Jean Mastrangelo — Clinical Research">
+          <option>Clinical Trial Management &amp; Operations</option>
+          <option>Regulatory Strategy &amp; Submission Support</option>
+          <option>GCP Compliance &amp; Audit Readiness</option>
+          <option>Protocol &amp; SOP Development</option>
+          <option>Pharmaceutical Operations Advisory</option>
+        </optgroup>
+        <optgroup label="Mark Mastrangelo — Emergency Response">
+          <option>CPR &amp; AED Certification Training</option>
+          <option>First Aid Program Development</option>
+          <option>Emergency Response Planning</option>
+          <option>OSHA Compliance &amp; Safety Programs</option>
+          <option>Safety Culture &amp; Workforce Education</option>
+        </optgroup>
+        <option>General Inquiry</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label>Message</label>
+      <textarea placeholder="Briefly describe your project, challenge, or training need…"></textarea>
+    </div>
+    <button class="form-submit">Send Inquiry</button>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-brand">Wister <span>Group</span> LLC</div>
+  <p>© 2026 Wister Group LLC · Clinical Research &amp; Emergency Response Consulting</p>
+  <div class="footer-links">
+    <a href="#team">Team</a>
+    <a href="#services">Services</a>
+    <a href="#contact">Contact</a>
+    <a href="https://linkedin.com/in/jbmastrangelo" target="_blank">LinkedIn</a>
+  </div>
+</footer>
+
+<script>
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      e.target.style.opacity = '1';
+      e.target.style.transform = 'translateY(0)';
+    }
+  });
+}, { threshold: 0.1 });
+
+document.querySelectorAll('.timeline-item, .service-item, .cred-card, .principal-card').forEach(el => {
+  el.style.opacity = '0';
+  el.style.transform = 'translateY(20px)';
+  el.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+  observer.observe(el);
+});
+
+document.querySelector('.form-submit').addEventListener('click', () => {
+  alert('Thank you for your inquiry. A member of the Wister Group team will be in touch shortly.');
+});
+</script>
+</body>
+</html>
